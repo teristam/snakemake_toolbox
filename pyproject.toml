@@ -1,0 +1,10 @@
+[project]
+name = "snakemake-toolbox"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyterlab>=4.4.2",
+    "snakemake>=9.4.0",
+]

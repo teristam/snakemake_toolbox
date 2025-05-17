@@ -1,0 +1,28 @@
+from glob import glob
+
+rule all:
+    input:
+        expand('{session}/processed/capitalized.txt', session=glob('data/*'))
+
+rule combine:
+    input:
+        A='{session}/A.txt',
+        B='{session}/B.txt'
+    message:
+        '--Combining files--'
+    output:
+        combined='{session}/processed/combined.txt'
+    log:
+        '{session}/log/combine.log'
+    script:
+        'scripts/combine.py'
+
+rule capitalize:
+    input:
+        combined = rules.combine.output.combined
+    output:
+        capitalized = '{session}/processed/capitalized.txt'
+    log:
+        notebook = '{session}/log/capitalize.ipynb'
+    notebook:
+        'notebooks/capitalize.ipynb'
