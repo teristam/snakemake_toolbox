@@ -2,7 +2,7 @@ from glob import glob
 
 rule all:
     input:
-        expand('{session}/processed/capitalized.txt', session=glob('data/*'))
+        expand('{session}/processed/.done', session=glob('data/*'))
 
 rule combine:
     input:
@@ -20,9 +20,30 @@ rule combine:
 rule capitalize:
     input:
         combined = rules.combine.output.combined
+    message:
+        '--- Running capitalize---'
     output:
         capitalized = '{session}/processed/capitalized.txt'
     log:
         notebook = '{session}/log/capitalize.ipynb'
     notebook:
         'notebooks/capitalize.ipynb'
+
+rule plot:
+    input:
+        capitalized ='{session}/A.txt'
+    message:
+        '--- Plotting figures ---'
+    log:
+        '{session}/log/plot.log'
+    output:
+        figures_dir = directory('{session}/processed/figures/'),
+    script:
+        'scripts/plot.R'
+
+rule final:
+    input:
+        rules.plot.output,
+        rules.capitalize.output
+    output:
+        touch('{session}/processed/.done')
