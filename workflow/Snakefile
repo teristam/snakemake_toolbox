@@ -26,6 +26,8 @@ rule capitalize:
         capitalized = '{session}/processed/capitalized.txt'
     log:
         notebook = '{session}/log/capitalize.ipynb'
+    conda:
+        'env/notebook.yml'
     notebook:
         'notebooks/capitalize.ipynb'
 
@@ -35,7 +37,7 @@ rule plot:
     message:
         '--- Plotting figures ---'
     log:
-        '{session}/log/plot.log'
+        '{session}/log/plot.log'        
     output:
         figures_dir = directory('{session}/processed/figures/'),
     script:

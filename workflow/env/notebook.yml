@@ -1,0 +1,5 @@
+name: notebook
+dependencies:
+  - python=3.12
+  - jupyterlab
+  - pandas
