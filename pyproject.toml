@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "jupyter>=1.1.1",
     "jupyterlab>=4.4.2",
+    "rust-just>=1.40.0",
     "snakemake>=9.4.0",
 ]
