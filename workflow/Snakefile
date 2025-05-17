@@ -2,7 +2,7 @@ from glob import glob
 
 rule all:
     input:
-        expand('{session}/processed/.done', session=glob('data/*'))
+        expand('{session}/processed/workflow.done', session=glob('data/*'))
 
 rule combine:
     input:
@@ -46,4 +46,4 @@ rule final:
         rules.plot.output,
         rules.capitalize.output
     output:
-        touch('{session}/processed/.done')
+        touch('{session}/processed/workflow.done')
