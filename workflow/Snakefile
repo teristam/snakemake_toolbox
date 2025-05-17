@@ -47,5 +47,23 @@ rule final:
     input:
         rules.plot.output,
         rules.capitalize.output
+    
+    log:
+        '{session}/log/final.log'
     output:
-        touch('{session}/processed/workflow.done')
+        touch('{session}/processed/workflow.done'),
+        '{session}/log/code_backup.tar.gz'
+    shell:
+        '''
+        # Create a temporary directory for the clean copy
+        TMPDIR=$(mktemp -d)
+
+        # Copy working directory to temp, excluding .git and other hidden files
+        rsync -a --exclude='.*' --exclude='data/' ./ "$TMPDIR/" 
+
+        # Create the tarball
+        tar -czf "{wildcards.session}/log/code_backup.tar.gz" -C "$TMPDIR" . 
+
+        # Clean up
+        rm -rf "$TMPDIR"
+        '''
