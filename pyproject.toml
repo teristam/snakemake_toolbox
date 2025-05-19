@@ -5,8 +5,11 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "h5netcdf>=1.6.1",
     "jupyter>=1.1.1",
     "jupyterlab>=4.4.2",
+    "matplotlib>=3.10.3",
     "rust-just>=1.40.0",
     "snakemake>=9.4.0",
+    "xarray>=2025.4.0",
 ]
