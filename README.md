@@ -1,3 +1,6 @@
+This is the repository for the BNDU Toolbox meeting talk 
+"Introduction to scientific workflow management systems for animal studies"
+
 ## Setup instruction
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
 2. Clone this repository
