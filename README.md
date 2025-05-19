@@ -14,3 +14,4 @@
     `snakemake -c4 --use-conda`
 5. Force re-run all files  
    `snakemake -c4 -F`
+6. It will automatically track code change by default
