@@ -1,6 +1,10 @@
-1. Install UV
-2. Install base depedencies `uv sync`
-3. Activate environment `source .venv/bin/activate`
+## Setup instruction
+1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
+2. Clone this repository
+   `git clone https://github.com/teristam/snakemake_toolbox`
+3. Go to the `snakemake_toolbox` folder
+4. Install base depedencies `uv sync`
+5. Activate environment `source .venv/bin/activate`
 
 ## Snakemake
 
@@ -10,8 +14,8 @@
    `snakemake --cores 4` or `snakemake -c4`
 3. Force re-run a certain rule  
     `snakemake -c4 -R plot`
-4. Use specifiec conda environment for rules
+4. Use specifiec conda environment for rules  
     `snakemake -c4 --use-conda`
 5. Force re-run all files  
    `snakemake -c4 -F`
-6. It will automatically track code change by default
+6. It will automatically track code change by default. Try modifying `combine.py` and re-run `snakemake --dry-run`
