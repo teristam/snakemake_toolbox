@@ -22,3 +22,5 @@ This is the repository for the BNDU Toolbox meeting talk
 5. Force re-run all files  
    `snakemake -c4 -F`
 6. It will automatically track code change by default. Try modifying `combine.py` and re-run `snakemake --dry-run`
+7. Delete all outputs
+   `snakemake --delete-all-output`
