@@ -2,7 +2,7 @@ import time
 import random
 
 # Introduce random wait to simulate simutaneously processing
-time.sleep(random.uniform(3, 5))
+time.sleep(random.uniform(8, 10))
 
 # Combine two files into one
 sys.stderr = open(snakemake.log[0], "w", buffering=1)
